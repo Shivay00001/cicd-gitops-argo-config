@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: finance
+  namespace: argocd
+spec:
+  description: Finance domain applications including Payment Gateway
+  sourceRepos:
+  - '*'
+  destinations:
+  - namespace: finance
+    server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
